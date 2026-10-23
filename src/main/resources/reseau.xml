@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<reseauSocial>
+
+    <utilisateurs>
+        <utilisateur id="U1" actif="true" role="admin">
+            <nom>Eya Makni</nom>
+            <email>eya@example.com</email>
+            <dateInscription>2026-01-15</dateInscription>
+            <abonnes>250</abonnes>
+            <abonnements>120</abonnements>
+        </utilisateur>
+
+        <utilisateur id="U2" actif="true" role="membre">
+            <nom>xxxx</nom>
+            <email>xxxxe@example.com</email>
+            <dateInscription>2026-02-10</dateInscription>
+            <abonnes>180</abonnes>
+            <abonnements>90</abonnements>
+        </utilisateur>
+
+        <utilisateur id="U3" actif="true" role="membre">
+            <nom>aaaaa</nom>
+            <email>aaaaa@example.com</email>
+            <dateInscription>2026-03-05</dateInscription>
+            <abonnes>75</abonnes>
+            <abonnements>60</abonnements>
+        </utilisateur>
+    </utilisateurs>
+
+    <publications>
+        <publication id="P1" auteur="U1" visibilite="public">
+            <contenu>Bienvenue sur SocialNet !</contenu>
+            <datePublication>2026-10-10</datePublication>
+
+            <reactions>
+                <reaction utilisateur="U2" type="like"/>
+                <reaction utilisateur="U3" type="love"/>
+            </reactions>
+
+            <commentaires>
+                <commentaire id="C1" auteur="U2">
+                    <texte>Super publication !</texte>
+                    <dateCommentaire>2026-10-11</dateCommentaire>
+                </commentaire>
+            </commentaires>
+        </publication>
+
+        <publication id="P2" auteur="U2" visibilite="amis">
+            <contenu>Ma première photo</contenu>
+            <datePublication>2026-10-12</datePublication>
+
+            <reactions>
+                <reaction utilisateur="U1" type="like"/>
+            </reactions>
+
+            <commentaires/>
+        </publication>
+    </publications>
+
+</reseauSocial>

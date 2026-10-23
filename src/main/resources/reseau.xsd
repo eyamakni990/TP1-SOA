@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="reseauSocial">
+        <xs:complexType>
+            <xs:sequence>
+
+                <!-- Utilisateurs -->
+                <xs:element name="utilisateurs">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="utilisateur"
+                                        minOccurs="1"
+                                        maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="nom" type="xs:string"/>
+                                        <xs:element name="email" type="xs:string"/>
+                                        <xs:element name="dateInscription" type="xs:date"/>
+                                        <xs:element name="abonnes" type="xs:nonNegativeInteger"/>
+                                        <xs:element name="abonnements" type="xs:nonNegativeInteger"/>
+                                    </xs:sequence>
+                                    <xs:attribute name="id" type="xs:ID" use="required"/>
+                                    <xs:attribute name="actif" type="xs:boolean" use="required"/>
+                                    <xs:attribute name="role" type="xs:string" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <!-- Publications -->
+                <xs:element name="publications">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="publication"
+                                        minOccurs="0"
+                                        maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="contenu" type="xs:string"/>
+                                        <xs:element name="datePublication" type="xs:date"/>
+
+                                        <xs:element name="reactions">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="reaction"
+                                                                minOccurs="0"
+                                                                maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:attribute name="utilisateur"
+                                                                          type="xs:IDREF"
+                                                                          use="required"/>
+                                                            <xs:attribute name="type"
+                                                                          type="xs:string"
+                                                                          use="required"/>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+
+                                        <xs:element name="commentaires">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="commentaire"
+                                                                minOccurs="0"
+                                                                maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="texte" type="xs:string"/>
+                                                                <xs:element name="dateCommentaire" type="xs:date"/>
+                                                            </xs:sequence>
+                                                            <xs:attribute name="id" type="xs:ID" use="required"/>
+                                                            <xs:attribute name="auteur" type="xs:IDREF" use="required"/>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+
+                                    </xs:sequence>
+                                    <xs:attribute name="id" type="xs:ID" use="required"/>
+                                    <xs:attribute name="auteur" type="xs:IDREF" use="required"/>
+                                    <xs:attribute name="visibilite" type="xs:string" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
